@@ -35,7 +35,7 @@ A mostly reasonable approach to CSS. Most of it is based on and is an excerpt of
 
 At a very high-level, we want:
 
-* Four (4) space indents. No tabs;
+* Use tabs for indentation;
 * 80 character wide columns;
 * Multi-line CSS;
 * Meaningful use of whitespace.
