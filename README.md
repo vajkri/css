@@ -8,6 +8,7 @@ A mostly reasonable approach to CSS. Most of it is based on and is an excerpt of
 	* [Anatomy of a ruleset](#anatomy-of-a-ruleset)
 	* [Alignemnt](#alignment)
 	* [Meaningful whitespace](#meaningful-whitespace)
+	* [Ordering properties](#ordering-properties)
 * [Commenting](#commenting)
 * [Naming Conventions](#naming-conventions)
 	* [Hyphen Delimited](#hyphen-delimited)
@@ -179,6 +180,42 @@ For example:
     .bar__foo {}
 ```
 
+
+###Ordering properties
+
+We order our properties in every rule in 6 different sections:
+
+1. Box model - display mode, width, height, padding, margin etc.
+2. Position - Positioning and offsets
+3. Typography
+4. Background styles
+5. Miscellaneous
+6. Includes - mixins etc.
+
+Every section is seperated with a blank new line. Example:
+```
+.modulename {
+    display: block;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    min-width: 300px;
+    max-width: 800px;       
+
+    position: relative;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2em;
+
+    background:#ccc url(../media/images/ui/back.gif) 0 0 repeat-x;
+
+    border-radius: 5px;
+
+    @include box-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+```
 
 
 
