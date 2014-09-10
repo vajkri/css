@@ -216,7 +216,7 @@ Every section is seperated with a blank new line. Example:
     @include box-shadow(0 0 5px rgba(0,0,0,0.5));
 }
 ```
-
+(Remark: Ruleset from <a href="https://github.com/verticlabs/html-boilerplate/blob/master/docs/guideline-css.md#ordering-properties" target="_blank">Vertic's CSS guidelines</a>)
 
 
 
