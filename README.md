@@ -183,40 +183,45 @@ For example:
 
 ###Ordering properties
 
-We order our properties in every rule in 6 different sections:
+Ordering our properties according to a certain ruleset also increases readibility. We order our properties in 7 sections the following way:
 
-1. Box model - display mode, width, height, padding, margin etc.
-2. Position - Positioning and offsets
-3. Typography
-4. Background styles
-5. Miscellaneous
-6. Includes - mixins etc.
+1. `@extend`'s
+2. Box model - display mode, width, height, padding, margin, border, etc.
+3. Position - Positioning and offsets
+4. Typography
+5. Background styles
+6. Miscellaneous (opacity, border-radius, box-shadow, transform, etc.)
+7. Transitions & animations
 
-Every section is seperated with a blank new line. Example:
+Every section is seperated with a blank new line.
+
+The tricky element is `@include`. As we can include mixins effecting very different properties (e.g. `@include font-size(13)` vs. `@include transition(default)`), it makes more sense to list our `@include`'s at the beginning of the relevant section.
+
+Example of a correct declaration block:
 ```
-.modulename {
-    display: block;
-    padding: 0;
+.btn {
+    display: inline-block;
     margin: 0;
-    overflow: hidden;
-    width: auto;
-    height: auto;
-    min-width: 300px;
-    max-width: 800px;       
+    padding: 0 1em;
+    overflow: hidden; // Creates new formatting context, self clearing floats etc. 
 
-    position: relative;
+    position: relative; // To help with positioning icons and arrows
 
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2em;
+    @include font-size(14px);
+    color: $color-black;
+    vertical-align: middle;
+    white-space: nowrap;
 
-    background:#ccc url(../media/images/ui/back.gif) 0 0 repeat-x;
+    background: $color-red;
 
-    border-radius: 5px;
+    border-radius: 200px; // Huge number to create perfectly round corners (using 100% creates oval shapes)
+    box-shadow: 0 1px rgba($color-black, 0.2);
 
-    @include box-shadow(0 0 5px rgba(0,0,0,0.5));
+    @include transition(0.2s);
 }
 ```
-(Remark: Ruleset from <a href="https://github.com/verticlabs/html-boilerplate/blob/master/docs/guideline-css.md#ordering-properties" target="_blank">Vertic's CSS guidelines</a>)
+
+(Remark: Ruleset based on <a href="https://github.com/verticlabs/html-boilerplate/blob/master/docs/guideline-css.md#ordering-properties" target="_blank">Vertic's CSS guidelines</a> with further usability improvements by <a href="https://twitter.com/laustdeleuran" target="_blank">@laustdeleuran</a>.)
 
 
 
